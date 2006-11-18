@@ -1,0 +1,26 @@
+---
+name: Net-SSL-ExpireDate
+version: 1.00
+author:
+  - 'HIROSE Masaaki  C<< <hirose31@gmail.com> >>'
+abstract: obtain expiration date of certificate
+license: perl
+resources:
+  license: http://dev.perl.org/licenses/
+requires:
+  Crypt::OpenSSL::X509: 0
+  Date::Parse: 0
+  DateTime: 0
+  IO::Socket::SSL: 0
+  Net::SSLeay: 0
+build_requires:
+  Test::Base: 0
+  Test::More: 0
+provides:
+  Net::SSL::ExpireDate:
+    file: lib/Net/SSL/ExpireDate.pm
+    version: 1.00
+generated_by: Module::Build version 0.2805
+meta-spec:
+  url: http://module-build.sourceforge.net/META-spec-v1.2.html
+  version: 1.2
