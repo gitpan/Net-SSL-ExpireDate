@@ -1,4 +1,3 @@
-.cvsignore
 Build.PL
 Changes
 inc/Module/AutoInstall.pm
@@ -22,14 +21,16 @@ inc/Test/Builder/Module.pm
 inc/Test/More.pm
 lib/Net/SSL/ExpireDate.pm
 Makefile.PL
-MANIFEST
+MANIFEST			This list of files
 META.yml
-pm_to_blib
 README
+sample/cert-expire.t
+sample/cert-list.txt
+sample/check-cert-expire.pl
 t/00.load.t
 t/01.https.t
 t/02.file.t
+t/03.accessor.t
+t/90.pod.t
+t/91.pod-coverage.t
 t/cert.pem
-t/perlcritic.t
-t/pod-coverage.t
-t/pod.t

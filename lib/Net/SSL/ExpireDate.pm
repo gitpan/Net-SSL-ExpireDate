@@ -4,8 +4,9 @@ use strict;
 use warnings;
 use Carp;
 
-our $VERSION = '1.00';
+our $VERSION = '1.01';
 
+use base qw(Class::Accessor);
 use IO::Socket::SSL;
 use Net::SSLeay;
 use Crypt::OpenSSL::X509;
@@ -13,6 +14,8 @@ use Date::Parse;
 use DateTime;
 use DateTime::Duration;
 use Time::Duration::Parse;
+
+__PACKAGE__->mk_accessors(qw(type target));
 
 BEGIN {
     my $debug_flag = $ENV{SMART_COMMENTS} || $ENV{SMART_COMMENT} || $ENV{SMART_DEBUG} || $ENV{SC};
@@ -137,7 +140,7 @@ Net::SSL::ExpireDate - obtain expiration date of certificate
     $expired = $ed->is_expired;              # examine already expired
 
     $expired = $ed->is_expired('2 months');  # will expire after 2 months
-    $expired = $ed->is_expired(DateTime::Duration->new(monthss=>2));  # ditto
+    $expired = $ed->is_expired(DateTime::Duration->new(months=>2));  # ditto
 
 =head1 DESCRIPTION
 
@@ -190,7 +193,15 @@ Acceptable intervals are human readable string (parsed by
 
   # will expire after 2 months
   $expired = $ed->is_expired('2 months');
-  $expired = $ed->is_expired(DateTime::Duration->new(monthss=>2));
+  $expired = $ed->is_expired(DateTime::Duration->new(months=>2));
+
+=head2 type
+
+return type of examinee certificate. "https" or "file".
+
+=head2 target
+
+return hostname or path of examinee certificate.
 
 =head1 BUGS AND LIMITATIONS
 

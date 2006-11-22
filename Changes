@@ -1,4 +1,9 @@
 Revision history for Net-SSL-ExpireDate
 
-1.00  Sat Nov 18 15:24:33 UTC 2006
-      Initial release.
+1.01  2006-11-22
+  * added sample scripts to "samples" directory.
+  * added new getter methods: ExpireDate#type and #target.
+
+1.00  2006-11-18
+  * Initial release.
+
