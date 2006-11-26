@@ -3,6 +3,7 @@ use inc::Module::Install;
 name     'Net-SSL-ExpireDate';
 all_from 'lib/Net/SSL/ExpireDate.pm';
 
+requires 'UNIVERSAL::require'    => 0;
 requires 'Class::Accessor'       => 0;
 requires 'IO::Socket::SSL'       => 0;
 requires 'Net::SSLeay'           => 0;
