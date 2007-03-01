@@ -15,7 +15,7 @@ run {
 
 __END__
 === rt.cpan.org
---- type: https
+--- type: ssl
 --- target: rt.cpan.org
 === cert.pem
 --- type: file

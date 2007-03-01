@@ -4,7 +4,7 @@ use strict;
 use warnings;
 use Carp;
 
-our $VERSION = '1.02';
+our $VERSION = '1.03';
 
 use base qw(Class::Accessor);
 use IO::Socket::SSL;
@@ -35,9 +35,9 @@ sub new {
         expire_date => undef,
        }, $class;
 
-    if ($opt{https}) {
-        $self->{type}   = 'https';
-        $self->{target} = $opt{https};
+    if ( $opt{https} or $opt{ssl} ) {
+        $self->{type}   = 'ssl';
+        $self->{target} = $opt{https} || $opt{ssl};
     } elsif ($opt{file}) {
         $self->{type}   = 'file';
         $self->{target} = $opt{file};
@@ -45,7 +45,7 @@ sub new {
             croak "$self->{target}: $!";
         }
     } else {
-        croak "missing option: neither https nor file";
+        croak "missing option: neither ssl nor file";
     }
 
     return $self;
@@ -55,7 +55,7 @@ sub expire_date {
     my $self = shift;
 
     if (! $self->{expire_date}) {
-        if ($self->{type} eq 'https') {
+        if ($self->{type} eq 'ssl') {
             my ($host, $port) = split /:/, $self->{target}, 2;
             $port ||= 443;
             ### $host
@@ -133,6 +133,8 @@ Net::SSL::ExpireDate - obtain expiration date of certificate
 
     $ed = Net::SSL::ExpireDate->new( https => 'example.com' );
     $ed = Net::SSL::ExpireDate->new( https => 'example.com:10443' );
+    $ed = Net::SSL::ExpireDate->new( ssl   => 'example.com:465' ); # smtps
+    $ed = Net::SSL::ExpireDate->new( ssl   => 'example.com:995' ); # pop3s
     $ed = Net::SSL::ExpireDate->new( file  => '/etc/ssl/cert.pem' );
 
     $expire_date = $ed->expire_date;         # return DateTime instance
@@ -144,7 +146,7 @@ Net::SSL::ExpireDate - obtain expiration date of certificate
 
 =head1 DESCRIPTION
 
-Net::SSL::ExpireDate get certificate from network (HTTPS) or local
+Net::SSL::ExpireDate get certificate from network (SSL) or local
 file and obtain its expiration date.
 
 =head1 METHODS
@@ -158,7 +160,8 @@ returns it. %option is to specify certificate.
 
   KEY    VALUE
   ----------------------------
-  https  "hostname[:port]"
+  ssl    "hostname[:port]"
+  https  (same as above ssl)
   file   "path/to/certificate"
 
 =head2 expire_date
@@ -197,7 +200,7 @@ Acceptable intervals are human readable string (parsed by
 
 =head2 type
 
-return type of examinee certificate. "https" or "file".
+return type of examinee certificate. "ssl" or "file".
 
 =head2 target
 

@@ -20,4 +20,4 @@ requires:
   Net::SSLeay: 0
   Time::Duration::Parse: 0
   UNIVERSAL::require: 0
-version: 1.02
+version: 1.03
