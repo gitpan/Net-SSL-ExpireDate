@@ -16,8 +16,8 @@ requires:
   Date::Parse: 0
   DateTime: 0
   DateTime::Duration: 0
-  IO::Socket::SSL: 0
+  IO::Socket::SSL: 0.99
   Net::SSLeay: 0
   Time::Duration::Parse: 0
   UNIVERSAL::require: 0
-version: 1.03
+version: 1.04

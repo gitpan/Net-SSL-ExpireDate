@@ -5,7 +5,7 @@ all_from 'lib/Net/SSL/ExpireDate.pm';
 
 requires 'UNIVERSAL::require'    => 0;
 requires 'Class::Accessor'       => 0;
-requires 'IO::Socket::SSL'       => 0;
+requires 'IO::Socket::SSL'       => 0.99;
 requires 'Net::SSLeay'           => 0;
 requires 'Crypt::OpenSSL::X509'  => 0;
 requires 'Date::Parse'           => 0;

@@ -4,7 +4,7 @@ use strict;
 use warnings;
 use Carp;
 
-our $VERSION = '1.03';
+our $VERSION = '1.04';
 
 use base qw(Class::Accessor);
 use IO::Socket::SSL;
