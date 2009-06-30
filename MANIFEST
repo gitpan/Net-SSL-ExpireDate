@@ -34,3 +34,6 @@ t/04.ssl.t
 t/90.pod.t
 t/91.pod-coverage.t
 t/cert.pem
+xt/x92.pod-spell.t
+xt/x93-dependencies.t
+xt/x99.perlcritic.t

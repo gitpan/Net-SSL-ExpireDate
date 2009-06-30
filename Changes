@@ -1,5 +1,9 @@
 Revision history for Net-SSL-ExpireDate
 
+1.06  2009-06-30
+  * change test URL. (01.https_client-auth.t)
+  * move some tests to xt.
+
 1.05  2008-05-01
   * support https which requires client authentication.
     now, Net-SSL-ExpireDate talks SSL protocol directly not using OpenSSL.
