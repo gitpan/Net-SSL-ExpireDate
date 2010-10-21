@@ -1,13 +1,13 @@
 Changes
-inc/Module/AutoInstall.pm
 inc/Module/Install.pm
-inc/Module/Install/AutoInstall.pm
+inc/Module/Install/AuthorTests.pm
 inc/Module/Install/Base.pm
 inc/Module/Install/Can.pm
 inc/Module/Install/Fetch.pm
 inc/Module/Install/Include.pm
 inc/Module/Install/Makefile.pm
 inc/Module/Install/Metadata.pm
+inc/Module/Install/Repository.pm
 inc/Module/Install/TestBase.pm
 inc/Module/Install/Win32.pm
 inc/Module/Install/WriteAll.pm
@@ -21,7 +21,11 @@ lib/Net/SSL/ExpireDate.pm
 Makefile.PL
 MANIFEST			This list of files
 META.yml
-README
+private/cn.pl
+private/ExpireDate.patch
+private/mail.google.com.pem
+private/MEMO
+README.md
 sample/cert-expire.t
 sample/cert-list.txt
 sample/check-cert-expire.pl
@@ -31,9 +35,8 @@ t/01.https_client-auth.t
 t/02.file.t
 t/03.accessor.t
 t/04.ssl.t
-t/90.pod.t
-t/91.pod-coverage.t
 t/cert.pem
+xt/90.pod.t
+xt/91.pod-coverage.t
 xt/x92.pod-spell.t
-xt/x93-dependencies.t
 xt/x99.perlcritic.t
