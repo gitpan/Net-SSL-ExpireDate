@@ -4,7 +4,7 @@ use strict;
 use warnings;
 use Carp;
 
-our $VERSION = '1.07';
+our $VERSION = '1.08';
 
 use base qw(Class::Accessor);
 use Crypt::OpenSSL::X509 qw(FORMAT_ASN1);
@@ -17,7 +17,7 @@ my $Socket = 'IO::Socket::INET6';
 eval "require $Socket";
 if ($@) {
     $Socket = 'IO::Socket::INET';
-    require $Socket;
+    eval "require $Socket";
 }
 
 __PACKAGE__->mk_accessors(qw(type target));
