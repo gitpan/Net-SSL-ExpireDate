@@ -4,11 +4,10 @@ author:
   - 'HIROSE Masaaki <hirose31 _at_ gmail.com>'
 build_requires:
   ExtUtils::MakeMaker: 6.42
-  Test::More: 0
 configure_requires:
   ExtUtils::MakeMaker: 6.42
 distribution_type: module
-generated_by: 'Module::Install version 0.91'
+generated_by: 'Module::Install version 0.97'
 license: perl
 meta-spec:
   url: http://module-build.sourceforge.net/META-spec-v1.4.html
@@ -28,7 +27,8 @@ requires:
   Filter::Util::Call: 0
   IO::Socket: 0
   Time::Duration::Parse: 0
+  UNIVERSAL::require: 0
 resources:
   license: http://dev.perl.org/licenses/
   repository: git://github.com/hirose31/Net-SSL-ExpireDate.git
-version: 1.09
+version: 1.10
